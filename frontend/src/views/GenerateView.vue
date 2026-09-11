@@ -122,7 +122,7 @@ const DEFAULT_SCENE_COSTS: Record<string, number> = {
   inpaint: 4,
 };
 
-const generateMode = ref<GenerateMode>("textGenerate");
+const generateMode = ref<GenerateMode>("imageEdit");
 const failedResultAsset = withBaseUrl("failed-result.svg");
 const generateEmptyStateAsset = withBaseUrl("generate-task-card.svg");
 const expiredResultAsset = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
