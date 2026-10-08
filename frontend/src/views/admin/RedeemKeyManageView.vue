@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import type { Dayjs } from "dayjs";
 import { CopyOutlined, GiftOutlined } from "@ant-design/icons-vue";
 import { createRedeemKeysBatch, listRedeemKeys, updateRedeemKeyStatus } from "@/api/admin";
+import { copyText } from "@/lib/clipboard";
 import type { AdminRedeemKey, AdminRedeemKeyBatchResult, RedeemKeyStatus } from "@/types";
 
 const loading = ref(false);
@@ -142,7 +143,7 @@ function handlePageChange(page: number, pageSize?: number) {
 
 async function handleCopy(text: string, successText = "内容已复制") {
   try {
-    await navigator.clipboard.writeText(text);
+    await copyText(text);
     message.success(successText);
   } catch {
     message.error("复制失败，请重试");
